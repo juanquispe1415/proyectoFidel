@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta name="description" content="Portal - Municipalidad de Pueblo Libre">
+    <link rel="icon" type="imagen/jpg" href="images/favicon.jpg">
+    <title>PORTAL MPL</title>
+    <!-- esta línea solo es necesaria para entornos antiguos Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    
+    <link href="lib/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+    <!-- Bootstrap 4.3.1 -->
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!-- RangeSlider -->
+    <link href="lib/noUiSlider/css/nouislider.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="lib/toastr/css/toastr.min.css" rel="stylesheet" />
+    <link href="lib/AdminLTE/css/AdminLTE.css" rel="stylesheet" />
+    <link href="lib/chosen/chosen-bootstrap.css" rel="stylesheet" />
+    <link href="lib/chosen/chosen.css" rel="stylesheet" />
+    <link href="lib/chosen/chosen.css" rel="stylesheet" />
+    <link href="lib/chosen/chosen-bootstrap.css" rel="stylesheet" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="css/complements/_all-skins.css" rel="stylesheet" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="lib/bootstrap-wysihtml5/css/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/ol-contextmenu@latest/dist/ol-contextmenu.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/ol-contextmenu"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJKiQo6ke2UCRp5EEm4M2PgnlTp8CBNms&sensor=false&style=feature:all|element:labels|visibility:off"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Geoportal -->
+    <link href="css/geoportal.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="bundle.css" />
+
+</head>
+<body style="height: 100%;">
+
+
+    <div class="hold-transition skin-green-light  fixed" style="height:100%">
+        <div class="wrapper">
+            <header class="main-header" style="text-align:center">
+                <div style="float: left;">
+                    <a href="#" class="sidebar-toggle bg-blue fa-2x" id="amenu" data-toggle="push-menu" aria-label="Sidebar toogle" role="button">
+                    </a>
+                    <!-- Logo -->
+                    <a href="#" class="logo px-0 hidden-xs bg-blue" style="align-items:baseline;width:260px;">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                        <!-- logo for regular state and mobile devices -->
+                        <span class="logo-lg hidden-xs" style="vertical-align:middle;">
+                            <img src="images/logo_institucion.png" height="58" width="180" />
+                        </span>
+                    </a>
+                </div>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top bg-blue">
+    
+                    <h3 style="float: left;margin-bottom: -20px;margin-top: 15px;margin-left: -70px;"></h3>
+                    <!-- Sidebar toggle button-->
+                    <div class="navbar-custom-menu hidden-sm hidden-md visible-lg">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <div class="iconos" style="padding-top: 15px; ">
+                                    <!-- <a class="social" rel="noopener" href="https://www.facebook.com/MunicipalidaddeMiraflores"
+                                           title="Encuéntranos en Facebook" target="_blank">
+                                            <i class="fa fa-facebook-square fa- fa-2x" style="color:white;" alt="Síguenos en Facebook"></i>
+                                        </a>
+                                        <a class="social" rel="noopener" href="https://twitter.com/MuniMiraflores"
+                                           title="Encuéntranos en Twitter" target="_blank">
+                                            <i class="fa fa-twitter-square fa-2x" style="color:white;" alt="Síguenos en twitter"></i>
+                                        </a>
+                                        <a class="social" rel="noopener" href="https://www.youtube.com/channel/UC8FiOrR4JKMX1gbFTcCqlqA"
+                                           title="Encuéntranos en YouTube" target="_blank">
+                                            <i class="fa fa-youtube-square fa-2x" style="color:white;" alt="Síguenos en youtube"></i>
+                                        </a>
+                                        <a class="social" rel="noopener" href="https://www.instagram.com/munimiraflores/"
+                                           title="Síguenos en Instagram" target="_blank">
+                                            <i class="fa fa-instagram fa-2x" style="color:white;" alt="Síguenos en instagram"></i>
+                                        </a>
+                                        <a class="social" rel="noopener" href="https://www.pinterest.com/munisanisidro/"
+                                           title="Síguenos en Pinterest" target="_blank">
+                                            <i class="fa fa-pinterest-square fa-2x" style="color:white;" alt="Síguenos en pinterest"></i>
+                                        </a>
+                                        <a class="social" rel="noopener" href="http://msi.gob.pe/portal/municipalidad/contactenos/"
+                                           title="Escríbenos" target="_blank">
+                                            <i class="fa  fa-envelope-o fa-2x" style="color:white;" alt="Escríbenos"></i>
+                                        </a> -->
+                                </div>
+                            </li>
+                            <!--////////////////HOME/////////////-->
+                            <li>
+                                <a rel="noopener" href="#" title="Buscar"  id="OpenBusqueda">
+                                    <i class="fa fa-search  fa-2x"></i>
+                                    <!-- <span class="label label-success">4</span>-->
+                                </a>
+                            </li>
+                            <li style="display:none">
+                                <a rel="noopener" href="https://www.munibellavista.gob.pe/" title="Portal Institucional" target="_blank" >
+                                    <i class="fa fa-home fa-2x"></i>
+                                    <!-- <span class="label label-success">4</span>-->
+                                </a>
+                            </li>
+    
+                            <!--////////////////IMPRESIÓN/////////////-->
+                            <!--
+                            
+                            -->
+                            <!--////////////////COMPARTIR/////////////-->
+                            <li class="dropdown tasks-menu" style="display:none">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="export-png" title="Compartir">
+                                    <i class="fa fa-share-alt fa-2x"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header"><b>Copiar y compartir el enlace URL</b></li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <!-- end task item -->
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group" style="margin-bottom: 9px;margin-left:10px;margin-right:10px;">
+                                                            <input type="text" id="txtUrl" name="txtUrl" style=" width:75%;">
+                                                            <button class="btn btn-success" onclick="copiarAlPortapapeles('txtUrl')"><i class="fa fa-clipboard"></i> Copiar url</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+    
+                                    <li class="header">
+                                        Descargar la imagen del mapa en formato PNG
+                                        <button id="btnExportPNG" class="btn btn-success"><i class="fa fa-download"></i> Descargar</button>
+                                    </li>
+                                </ul>
+                            </li>
+    
+                            <!--////////////////AYUDA/////////////-->
+                            <li>
+                                <a href="javascript:abrirModal();" title="Ayuda">
+                                    <i class="fa fa-question-circle fa-2x"></i>
+                                </a>
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+    
+                                    <!-- Modal content -->regufio
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <p>Aquí encontrará la ayuda del GeoPortal MSI ...</p>
+                                        <p>Centro de información</p>
+                                        Es la zona ubicada en esquina superior derecha, en la cual los usuarios podrán interactuar con la municipalidad de San isidro en todas sus redes sociales y compartir información del mapa.
+                                        <br />Facebook<br />
+                                        Enlace a la página oficial de Facebook de la municipalidad de san isidro.
+                                        Twitter<br />
+                                        Enlace al Twitter oficial de la municipalidad de san isidro.
+                                        YouTube<br />
+                                        Enlace al canal oficial YouTube de la municipalidad de san isidro.
+                                        Instagram<br />
+                                        Enlace a la página oficial Instagram de la municipalidad de san isidro.
+                                        Pinterest<br />
+                                        Enlace a la página oficial Pinterest de la municipalidad de san isidro.
+    
+    
+                                    </div>
+                                    <div id="barraNavegacion">
+                                        <svg height="190" width="300">
+                                            <!-- punta de flecha -->
+                                            <path d="M 24 5 L 15 35 L 45 30 z" style="fill:white;stroke:white;stroke-width:1;" />
+                                            <!-- Linea -->
+                                            <path d="M 25 18 q 20 75 90 65" stroke="white" stroke-width="5" fill="none" />
+                                            <!-- Label the points -->
+                                            <text x="175" y="90" style="font-size:18px; font-family:sans-serif;fill:white; stroke:none; text-anchor:middle">
+                                                Navega por
+                                                <tspan x="175" y="110">los mapas base y</tspan>
+                                                <tspan x="175" y="130">agrega información</tspan>
+                                                <tspan x="175" y="150">temática</tspan>
+                                            </text>
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="centroDeInformacion">
+                                        <svg height="190" width="300">
+                                            <!-- punta de flecha -->
+                                            <path d="M 204 5 L 195 35 L 225 30 z" style="fill:white;stroke:white;stroke-width:1;" />
+                                            <!-- Linea -->
+                                            <path d="M 207 18 q 20 75 -80 65" stroke="white" stroke-width="5" fill="none" />
+                                            <!-- Label the points -->
+                                            <text x="80" y="90" style="font-size:18px; font-family:sans-serif;fill:white; stroke:none; text-anchor:middle">
+                                                Infórmate,
+                                                <tspan x="80" y="110">accede y</tspan>
+                                                <tspan x="80" y="130">comparte</tspan>
+                                            </text>
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="centroDeInformacionLinea">
+                                        <svg height="190" width="350">
+                                            <!-- Linea -->
+                                            <path d="M 10 10 q 150 20 350 2" stroke="white" stroke-width="5" fill="none" />
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="barraDeBusqueda">
+                                        <svg height="190" width="300">
+                                            <!-- punta de flecha -->
+                                            <path d="M 204 5 L 195 35 L 225 30 z" style="fill:white;stroke:white;stroke-width:1;" />
+                                            <!-- Linea -->
+                                            <path d="M 207 18 q 20 75 -80 65" stroke="white" stroke-width="5" fill="none" />
+                                            <!-- Label the points -->
+                                            <text x="80" y="90" style="font-size:18px; font-family:sans-serif;fill:white; stroke:none; text-anchor:middle">
+                                                Encuentra
+                                                <tspan x="80" y="110">una dirección</tspan>
+                                            </text>
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+    
+                                </div>
+    
+                                <!-- The Modal2 -->
+                                <div id="myModal2" class="modal">
+    
+                                    <!-- Modal2 content -->
+                                    <div class="modal-content">
+                                        <span class="close2">&times;</span>
+                                        <input type="hidden" id="steptuto" value="1" />
+                                        <div id="helptext">
+                                            <b>Ayuda Mapas Base</b>
+                                            <p>
+                                                Aquí encontraras los Mapas del Catastro de San Isidro (manzana, lote y vía pública), las fotos aéreas (Ortofotos) actuales e históricas, puedes darle transparencia y superponerlas en el orden de tu preferencia.
+                                            </p>
+                                            <p>
+                                                Selecciona cualquier lote y encontraras la información y características como foto del predio, Código Único Catastral, Dirección, Área de terreno, área construida, linderos y otros. Además de la Compatibilidad de Uso o los usos que puedes realizar o están autorizados en el predio.
+                                            </p>
+                                        </div>
+                                        <br />
+                                        <button id="nexttuto" onclick="textModal(true)" class="btn btn-success pull-right">Siguiente <i class="fa fa-chevron-circle-right"></i></button>
+                                        <button id="prevtuto" onclick="textModal()" style="display:none;margin-right:10px;" class="btn btn-success pull-right"><i class="fa fa-chevron-circle-left"></i> Anterior</button>
+                                        <br />
+                                    </div>
+    
+                                    <div id="barraNavegacion2">
+                                        <svg height="190" width="300">
+                                            <!-- punta de flecha -->
+                                            <path d="M 42 30 L 15 50 L 42 70 z" style="fill:white;stroke:white;stroke-width:1;" />
+                                            <!-- Linea -->
+                                            <path d="M 25 50 80 50" stroke="white" stroke-width="5" fill="none" />
+                                            <!-- Label the points -->
+                                            <text x="175" y="20" id="textNav" style="font-size:18px; font-family:sans-serif;fill:white; stroke:none; text-anchor:middle">
+                                                Navega por
+                                                <tspan x="175" y="40">los mapas base,</tspan>
+                                                <tspan x="175" y="60">información temática,</tspan>
+                                                <tspan x="175" y="80">busquedas y</tspan>
+                                                <tspan x="175" y="100">utilidades</tspan>
+                                            </text>
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="barraNavegacionLinea2" class="lineArc">
+                                        <svg height="400" width="500">
+                                            <!-- Linea -->
+                                            <path d="M 5 15 q 80 180 5 360" stroke="white" stroke-width="5" fill="none" />
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="barraNavegacionLinea3" class="lineArc">
+                                        <svg height="400" width="500">
+                                            <!-- Linea -->
+                                            <path d="M 5 50 q 80 145 5 340" stroke="white" stroke-width="5" fill="none" />
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="barraNavegacionLinea4" class="lineArc">
+                                        <svg height="400" width="500">
+                                            <!-- Linea -->
+                                            <path d="M 5 90 q 70 50 5 95" stroke="white" stroke-width="5" fill="none" />
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="barraNavegacionLinea5" class="lineArc">
+                                        <svg height="400" width="500">
+                                            <!-- Linea -->
+                                            <path d="M 5 135 q 80 50 5 100" stroke="white" stroke-width="5" fill="none" />
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                    <div id="barraNavegacionLinea6" class="lineArc">
+                                        <svg height="400" width="500">
+                                            <!-- Linea -->
+                                            <path d="M 5 185 q 80 50 5 100" stroke="white" stroke-width="5" fill="none" />
+                                            lo sentimos, su browser no soporta el formato svg.
+                                        </svg>
+                                    </div>
+                                </div>
+                            </li>
+    
+                            <!--////////////////LOGUEO/////////////-->
+                            <!-- <li style="display:none">
+                                <a rel="noopener" href="@Url.Action("Index", "Login")" title="Portal Institucional" >
+                                    <i class="fa fa-user fa-2x"></i>
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <!--busqueda via y numero-->
+                    <div id="buscarDirec" style="padding-top:0px;display:inline-table;text-align:left">
+                        <input id="txtviaid" type="hidden" name="txtviaid">
+                        <div class="row">
+                            <div id="divTipoBusqueda" class="col-xs-3 col-sm-3 col-md-4 col-lg-3" style="display:none">
+                                <button onclick="wp.buscarlote(txtCodLote.value)" aria-label="Buscar Lote" class="btn btn-default"
+                                        style="border-radius:30px; width:38px; height:38px;">
+                                    <i class="fa fa-search "></i>
+                                </button>
+                            </div>
+                            <div id="divTipoBusqueda" class="col-xs-3 col-sm-3 col-md-4 col-lg-3" style="display:none">
+                                <select id="cbTipoBusquedaGeneral" class="form-control" style="border-radius:15px 15px 15px 15px;">
+                                    <option value="1">Código Lote</option>
+                                    <option value="2">Vía</option>
+                                    <option value="3">Dirección</option>
+                                    <option value="4">Parque</option>
+                                </select>
+                            </div>
+    
+                            <div id="divBusCodLote" class="col-xs-8 col-sm-5 col-md-4 col-lg-5 pr-0" style="display: none;">
+                                <div class="input-group">
+                                    <input id="txtCodLote" type="text" name="txtCodLote" aria-label="Buscar Vía"
+                                           class="form-control" placeholder="Código Lote"
+                                           style="border-radius:15px 0px 0px 15px;">
+                                    <div class="input-group-btn">
+                                        <button onclick="wp.buscarlote(txtCodLote.value)" aria-label="Buscar Lote" class="btn btn-default"
+                                                style="border-radius:1px 15px 15px 1px">
+                                            <i class="fa fa-search "></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div id="divBusVia" class="col-xs-8 col-sm-8 col-md-7 col-lg-8 pr-0" style="display: none;">
+                                <input id="txtSoloVia" type="text" name="txtvia" aria-label="Buscar Vía"
+                                       class="form-control" placeholder="Vía..."
+                                       style="border-radius:15px 15px 15px 15px;">
+                            </div>
+    
+                            <div class="col-xs-5 col-sm-6 col-md-5 col-lg-6 pr-0 divBusDireccion" style="display: none;">
+                                <input id="txtvia" type="text" name="txtvia" aria-label="Buscar Vía"
+                                       class="form-control" placeholder="Vía..."
+                                       style="border-radius:15px 15px 15px 15px;">
+                            </div>
+    
+                            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 divBusDireccion" style="display:none">
+                                <div class="input-group">
+                                    <input id="txtNumeroLote" name="txtNumeroLote" aria-label="Ingresel el número" type="text" class="form-control" placeholder="Número..."
+                                           style="border-radius:15px 0px 0px 15px" onkeyUp="return wp.ValNumero(this);" onkeypress="presionaEnter2(event)">
+                                    <div class="input-group-btn">
+                                        <button id="btn_buscarlote" aria-label="Buscar Lote" name="btn_buscarlote" class="btn btn-default" type="submit"
+                                                style="border-radius:1px 15px 15px 1px">
+                                            <i class="fa fa-search "></i>
+                                        </button>
+                                    </div>
+    
+                                </div>
+                            </div>
+    
+                            <div id="divParque" class="col-xs-8 col-sm-8 col-md-7 col-lg-7 pr-0" style="display: none;">
+                                <input id="txtParque" type="text" name="txtParque" aria-label="Buscar Parque"
+                                       class="form-control" placeholder="Parque..."
+                                       style="border-radius:15px 15px 15px 15px;">
+                            </div>
+    
+                        </div>
+                       
+                    </div>
+                </nav>
+            </header>
+    
+    
+    
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <div class="visible-xs" style="text-align: center;background: grey;">
+                    <img src="images/Geoportal2.png" alt="GeoportalLogo" height="58" />
+                </div>
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+    
+                    <div id="ayudaBar">
+                        <a href="javascript:abrirModal2();" title="Ayuda"> <i class="fa fa-question-circle"></i></a>
+                    </div>
+    
+                    <ul class="sidebar-menu" data-widget="tree">
+    
+                        <!-- /////////////////MAPA BASE////////////////////////////// -->
+                        <li class="active treeview" id="li_mapabase">
+                            <a href="#">
+                                <i class="fa fa-globe"></i>
+                                <span>PLANOS TEMÁTICOS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <ul class="sidebar-menu">
+                                        <li id="0">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="lotizacionLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/grupo_capa.png" alt="Lotizacion" class="img-responsive img-thumbnail bg-green" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar0" class="column" style="display: block;float:right;">
+                                                    <div id="slider_trasp_LayerLotizacion" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_oculta_LayerLotizacion" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="4" style="display:block">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="sectorLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/capa_sector.png" alt="Sector" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar4" class="column" style="display: none;float:right;">
+    
+                                                    <div id="slider_trasp_sector" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_oculta_sector" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="5" style="display:block">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="usoLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/capa_uso.png" alt="Uso" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar5" class="column" style="display: none;float:right;">
+    
+                                                    <div id="slider_trasp_uso" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_oculta_uso" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="6" style="display:block">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="alturaLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/capa_altura.png" alt="Alturas" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar6" class="column" style="display: none;float:right;">
+    
+                                                    <div id="slider_trasp_altura" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_oculta_altura" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#Leyenda" data-toggle="control-sidebar" data-controlsidebar="control-sidebar-open" id="mostrarLeyenda4" style="display:none;">
+                                                <input class="btn btn-primary btn-leyenda" type="button" value="Leyenda" id="btnMostrarLeyenda7" />
+                                            </a>
+                                        </li>
+                                        <li id="9" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="zonificacionLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/Bellavista_grouplayer_zonificacion.png" alt="Zonificación" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar8" class="column navbar8" style="display: none;float:right;">
+    
+                                                    <div id="slider_oculta_zonificacion" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_zonificacion" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#Leyenda" data-toggle="control-sidebar" data-controlsidebar="control-sidebar-open" id="mostrarLeyenda8" style="display:none;">
+                                                <input class="btn btn-primary btn-leyenda" type="button" value="Leyenda" id="btnMostrarLeyenda8" />
+                                            </a>
+                                        </li>
+                                        <li id="10" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="urbanizacionesLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/Bellavista_grouplayer_Urbanizaciones.png" alt="urbanizacion" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar9" class="column" style="display: none;float:right;">
+    
+                                                    <div id="slider_oculta_urbanizacion" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_urbanizacion" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#Leyenda" data-toggle="control-sidebar" data-controlsidebar="control-sidebar-open" id="mostrarLeyenda9" style="display:none;">
+                                                <input class="btn btn-primary btn-leyenda" type="button" value="Leyenda" id="btnMostrarLeyenda9" />
+                                            </a>
+                                        </li>
+                                        <li id="12" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="lotizacionUrbanaLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/Bella_Lotizacion_urbana.png" alt="urbanizacion" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar12" class="column" style="display: none;float:right;">
+    
+                                                    <div id="slider_oculta_lotizacionurbana" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_lotizacionurbana" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#Leyenda" data-toggle="control-sidebar" data-controlsidebar="control-sidebar-open" id="mostrarLeyenda12" style="display:none;">
+                                                <input class="btn btn-primary btn-leyenda" type="button" value="Leyenda" id="btnMostrarLeyenda12" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <!-- /////////////////FOTOS AEREAS/////////////////////////// -->
+                        <li class="treeview" id="li_ayudaBase" style="display:none">
+                            <a href="#">
+                                <i class="fa fa-picture-o"></i>
+                                <span>FOTOS AÉREAS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <ul class="sidebar-menu">
+                                        <!-- ////////////////Ortofoto_2021///////////////////////////// -->
+                                        <li id="1">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="ortofoto2021Link" href="#">
+                                                        <img src="images/Menu/Ortofotos/Ortofoto_2021.png" alt="Ortofoto2015" class="img-responsive img-thumbnail" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar6" class="column" style="display: none;float:right;">
+                                                    <div id="slider_oculta_Foto2021" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_Foto2021" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- ////////////////Ortofoto_2011///////////////////////////// -->
+                                        <li id="2" style="display:block">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="ortofoto2002Link" href="#">
+                                                        <img src="images/Menu/Ortofotos/Bellavista_Ortofoto_2002_IR.png" alt="Ortofoto2002" class="img-responsive img-thumbnail" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar16" class="column" style="display: none;float:right;">
+                                                    <div id="slider_oculta_Foto2002" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_Foto2002" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- ////////////////Ortofoto_2006///////////////////////////// -->
+                                        <li id="3" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="foto2006" href="#">
+                                                        <img src="images/Menu/Ortofotos/Ortofoto2006.jpeg" alt="Ortofoto2006" class="img-responsive img-thumbnail" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar14" class="column" style="display: none;float:right;">
+                                                    <div id="slider_oculta_Foto2006" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_Foto2006" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- ////////////////Ortofoto_2005///////////////////////////// -->
+                                        <li id="3" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="foto2005" href="#">
+                                                        <img src="images/Menu/Ortofotos/Ortofoto2005.jpeg" alt="Ortofoto2005" class="img-responsive img-thumbnail" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar15" class="column" style="display: none;float:right;">
+                                                    <div id="slider_oculta_Foto2005" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_Foto2005" title="Transparencia">
+                                                        <div class="ui-slider-l fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- ////////////////Ortofoto_2002///////////////////////////// -->
+                                        <li id="3" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="foto2002" href="#">
+                                                        <img src="images/Menu/Ortofotos/Ortofoto2002.jpeg" alt="Ortofoto2002" class="img-responsive img-thumbnail" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar16" class="column" style="display: none;float:right;">
+                                                    <div id="slider_oculta_Foto2002" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_Foto2002" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+    
+                                        <!-- ////////////////GrupoCapa2 (Lotización)///////////////////////////// -->
+    
+                                       
+                                       
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <!-- /////////////////INFORMACIÓN TEMÁTICA/////////////////// -->
+                        <li class="treeview" id="li_informacionTematica" style="display:none">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>INFORMACIÓN TEMÁTICA</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+    
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="#Leyenda" data-toggle="control-sidebar" data-controlsidebar="control-sidebar-open">
+                                        <input class="btn btn-primary" type="button" id="MostrarLeyenda" value="Mostrar Leyenda" style="width:100%;display:none;" />
+                                    </a>
+                                </li>
+    
+                                <li onclick="check(this);" style="display:none">
+                                    <a id="rbnCicloviasMira">
+                                        <i class="fa fa-circle-o"></i> Licencia Funcionamiento
+                                    </a>
+                                </li>
+    
+                                <li onclick="check(this);" style="display:block">
+                                    <a id="rbnMobiliarioUrbano">
+                                        <i class="fa fa-circle-o"></i> Mobiliario Urbano
+                                    </a>
+                                </li>
+    
+                                <li onclick="check(this);" style="display:block">
+                                    <a id="rbnComponenteUrbano">
+                                        <i class="fa fa-circle-o"></i> Componente Urbano
+                                    </a>
+                                </li>
+                                <li onclick="check(this);" style="display:block">
+                                    <a id="rbnArboles">
+                                        <i class="fa fa-circle-o"></i> Árboles
+                                    </a>
+                                </li>
+    
+    
+    
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-map-o"></i> Cultura y Patrimonio
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnMonumentoArqueologico">
+                                                <i class="fa fa-circle-o"></i> Monumento arqueológico
+                                            </a>
+                                        </li>
+    
+                                        <li onclick="check(this);">
+                                            <a id="rbnLocalesCulturales">
+                                                <i class="fa fa-circle-o"></i> Locales Culturales
+                                            </a>
+                                        </li>
+    
+                                    </ul>
+                                </li>
+    
+    
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-fort-awesome"></i>Gobierno
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnGobierno">
+                                                <i class="fa fa-circle-o"></i>Municipalidad de San Isidro
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-balance-scale"></i> Economía y trabajo
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnMercadosSupermercados">
+                                                <i class="fa fa-circle-o"></i> Mercados y Supermercados
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnCentroComercial">
+                                                <i class="fa fa-circle-o"></i> Centro Comercial
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-edit"></i> Educación
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnInstitutos">
+                                                <i class="fa fa-circle-o"></i> Institutos
+                                            </a>
+    
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnUniversidades">
+                                                <i class="fa fa-circle-o"></i> Universidades
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-handshake-o"></i> Salud y Social
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnClinicas">
+                                                <i class="fa fa-circle-o"></i> Clínicas
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnCasaVecino">
+                                                <i class="fa fa-circle-o"></i> Casas del vecino
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-futbol-o"></i> Ocio y recreación
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="btnCinesTeatro">
+                                                <i class="fa fa-circle-o"></i> Cines y Teatros
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnJuegosNinos">
+                                                <i class="fa fa-circle-o"></i> Juegos para Ninos
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnClubes">
+                                                <i class="fa fa-circle-o"></i> Clubes
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-map-o"></i> Territorio
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnPuntosGeodesicos">
+                                                <i class="fa fa-circle-o"></i> Puntos Geodésicos
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);" id="chkZonificacion">
+                                            <a id="rbnZonificacionNormativaDeUsosDeSuelo">
+                                                <i class="fa fa-circle-o"></i> Zonificacion usos<br />de suelo
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-bus"></i> Transporte
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+    
+                                        <li onclick="check(this);">
+                                            <a id="rbnEstacionesMetropolitano">
+                                                <i class="fa fa-circle-o"></i> Metropolitano
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnEstacionesBicicletasPublicas">
+                                                <i class="fa fa-circle-o"></i> Estacionamientos<br /> de Bicicletas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-pie-chart"></i> Gestión de Riesgo
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbngestionderiesgo">
+                                                <i class="fa fa-circle-o"></i>Puntos Seguros
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                <li class="treeview" style="display:none;">
+                                    <a href="#">
+                                        <i class="fa fa-recycle"></i> Programa de Reciclaje
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <a id="rbnInorganico">
+                                                <i class="fa fa-circle-o"></i> Inorgánico
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnOrganico">
+                                                <i class="fa fa-circle-o"></i> Orgánico
+                                            </a>
+                                        </li>
+                                        <li onclick="check(this);">
+                                            <a id="rbnNoDomiciliario">
+                                                <i class="fa fa-circle-o"></i> No Domiciliario
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                            </ul>
+                        </li>
+    
+                        <!-- /////////////////MAPAS EXTERNOS/////////////////// -->
+                        <li class="treeview" id="li_mapabase">
+                            <a href="#">
+                                <i class="fa fa-globe"></i>
+                                <span>MAPAS EXTERNOS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <ul class="sidebar-menu" >
+                                        <li id="1">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="osmLayerLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/Bellavista_grouplayer_Cartografia.png" alt="Lotizacion" class="img-responsive img-thumbnail bg-green" width="150" />
+                                                    </a>
+                                                </div>
+                                                <div id="navbar1" class="column" style="display: block;float:right;">
+                                                    <div id="slider_trasp_osmLayer" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_oculta_osmLayer" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        
+                                        <li id="9" style="display:none">
+                                            <div class="row" style="margin:auto">
+                                                <div class="column" style="float:left;">
+                                                    <a class="selay" id="osmLink" href="#">
+                                                        <img src="images/Menu/GrupoCapa/Bellavista_grouplayer_Sectores.png" alt="Zonificación" class="img-responsive img-thumbnail" width="150">
+                                                    </a>
+                                                </div>
+                                                <div id="navbar5" class="column" style="display: none;float:right;">
+    
+                                                    <div id="slider_oculta_OSM" title="Ocultar el mapa">
+                                                        <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                                    </div>
+                                                    <div id="slider_trasp_OSM" title="Transparencia">
+                                                        <div class="ui-slider-handle fa fa-low-vision"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+    
+                        <!-- /////////////////BUSQUEDAS////////////////////////////// -->
+                        
+    
+                        <!-- /////////////////UTILIDADES////////////////////////////// -->
+                        <li class="treeview" id="li_utilidades" style="display:block">
+                            <a href="#">
+                                <i class="fa fa-magnet"></i> <span>UTILIDADES</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-pencil-square-o"></i> DIBUJO
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <form id="options-form" automplete="off">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="interaction" value="nodraw" id="nodraw" checked>
+                                                        Sin Dibujos &nbsp;
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="interaction" value="draw" id="draw">
+                                                        Dibujar &nbsp;
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="interaction" value="modify" id="modify">
+                                                        Modificar &nbsp;<br />
+                                                    </label>
+                                                </div>
+                                                <div id="borraD" style="display: none;">
+                                                    <button style="display: none;" class="btn btn-success mb-2" id="borrarFeature">Borrar seleccionado</button>
+                                                    <br />
+                                                    <button class="btn btn-success" id="borrarDibujo">Borrar todos</button>
+                                                </div>
+                                                <div id="setDraw" style="display: none;" class="mr-2">
+                                                    <label>Selecione el tipo de dibujo.</label>
+                                                    <select id="selectDibujo" class="form-control " name="selectDibujo">
+                                                        <option value="Point">Punto</option>
+                                                        <option value="LineString">Líneas</option>
+                                                        <option value="Polygon">Polígono</option>
+                                                        <option value="Circle">Círculo</option>
+                                                    </select>
+                                                    <br />
+                                                    <label>Color borde: </label>
+                                                    <input id="favcolorb" type="color" class="form-control" name="favcolorb" value="#ff0000" onchange="wp.setColorFeature();"><br />
+                                                    <label>Color relleno: </label>
+                                                    <input id="favcolorr" type="color" class="form-control" name="favcolorr" value="#ff0000" onchange="wp.setColorFeature();"><br />
+                                                    <label>Grosor: </label>
+                                                    <input id="grosor" type="number" min="1" max="10" value="4" class="form-control" style="width:5em" onchange="wp.setColorFeature();" /><br />
+                                                    
+                                                    <p id="demo"></p>
+                                                </div>
+                                            </form>
+    
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                
+    
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-area-chart"></i> MEDIDA
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li onclick="check(this);">
+                                            <form class="form-inline">
+                                                <label>Tipo de medida&nbsp;</label><br />
+                                                <select id="medida" class="form-control my-2">
+                                                    <option value="None" selected>No medir</option>
+                                                    <option value="LineString">Longitud (polilínea)</option>
+                                                    <option value="Polygon">Area (Polígono)</option>
+                                                </select>
+    
+                                                <br />
+                                                <button class="btn btn-success" onclick="return wp.borrarMeasures()">Borrar medidas</button>
+    
+    
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+    
+    
+    
+                            </ul>
+                        </li>
+    
+                        <!-- /////////////////MAPAS EXTERNOS////////////////////////////// -->
+                        <li class="treeview" id="li_mapabasegoogle" style="display:none">
+                            <a href="#">
+                                <i class="fa fa-globe"></i>
+                                <span>MAPAS EXTERNOS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <!-- ////////////////Open Street Map///////////////////////////// -->
+                                <li id="44">
+                                    <div class="row" id="OSM" style="margin:auto">
+                                        <div class="column" style="float:left;">
+                                            <a class="selay" id="osmLink" href="#">
+                                                <img src="images/Open_Street_Map.png" alt="OpenStreetMap" class="img-responsive img-thumbnail " width="150" />
+                                            </a>
+                                        </div>
+                                        <div id="navbar44" class="column" style="display: none;float:right;">
+                                            <div id="slider_oculta07" title="Ocultar el mapa">
+                                                <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                            </div>
+                                            <div id="slider_trasp07" title="Transparencia">
+                                                <div class="ui-slider-handle fa fa-low-vision"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                                <!-- ////////////////Google Maps///////////////////////////// -->
+                                <li style="display:none">
+                                    <div class="row" id="GOOGLE" style="margin:auto">
+                                        <div class="column" style="float:left;">
+                                            <a class="selay" id="googleLink" href="#">
+                                                <img src="images/Google.png" alt="GoogleMaps" class="img-responsive img-thumbnail " width="150" />
+                                            </a>
+                                        </div>
+                                        <div id="navbar1" class="column" style="display: none;float:right;">
+                                            <div id="slider_oculta01" title="Ocultar el mapa">
+                                                <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                            </div>
+                                            <div id="slider_trasp01" title="Transparencia">
+                                                <div class="ui-slider-handle fa fa-low-vision"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- /////////////////Mapa Externo//////////////////////////// -->
+                                <li id="54" style="display:none">
+                                    <div class="row" style="margin:auto">
+                                        
+                                        <div class="column" style="float:left;">
+                                            
+                                            <a class="selay" id="TramaExternaLink" href="#">
+                                                <img src="images/Trama_Externa.png" alt="Lotizacion" class="img-responsive img-thumbnail bg-green" width="150" />
+                                            </a>
+                                        </div>
+    
+                                        <div id="navbar54" class="column" style="display: block;float:right;">
+    
+                                            <div id="slider_oculta54" title="Ocultar el mapa">
+                                                <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                            </div>
+                                            <div id="slider_trasp54" title="Transparencia">
+                                                <div class="ui-slider-handle fa fa-low-vision"></div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </li>
+    
+    
+    
+    
+    
+                                <li style="display:none">
+                                    <button id="toggleOSM" title="Toggle between OL and GMaps">Toggle between OL and GMaps</button>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <!-- ////////////////////OTRAS CAPAS////////////////////////////// -->
+                        <li class="treeview" style="display:none">
+                            <a href="#">
+                                <i class="fa fa-globe"></i>
+                                <span>OTRAS CAPAS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="6">
+                                    <div class="row" style="margin:auto">
+                                        <div class="column" style="float:left;">
+                                            <a class="selay" id="UsosPredominantesLink" href="#">
+                                                <img src="images/IconUsosPredominantes.png" alt="UsosPredominantes" class="img-responsive img-thumbnail" width="150" />
+                                            </a>
+                                        </div>
+    
+                                        <div id="navbar16" class="column" style="display: none;float:right;">
+                                            
+    
+                                            <div id="slider_oculta_UsoCompa" title="Ocultar el mapa">
+                                                <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                            </div>
+                                            <div id="slider_trasp_UsoCompa" title="Transparencia">
+                                                <div class="ui-slider-handle fa fa-low-vision"></div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </li>
+                                <li id="6">
+                                    <div class="row" style="margin:auto">
+                                        <div class="column" style="float:left;">
+                                            <a class="selay" id="RegistrosPublicosLink" href="#">
+                                                <img src="images/IconRegistrosPublicos.png" alt="RegistrosPublicos" class="img-responsive img-thumbnail" width="150" />
+                                            </a>
+                                        </div>
+    
+                                        <div id="navbar65" class="column" style="display: none;float:right;">
+                                            
+    
+                                            <div id="slider_oculta_RegPublic" title="Ocultar el mapa">
+                                                <div class="ui-slider-handle fa fa-arrows-h"></div>
+                                            </div>
+                                            <div id="slider_trasp_RegPublic" title="Transparencia">
+                                                <div class="ui-slider-handle fa fa-low-vision"></div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <!-- /////////////////INFORMACIÓN DE CERTIFICADOS////////////////////////////// -->
+    
+                        <li class="treeview" id="li_Certificados" style="display:none;">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>CERTIFICADOS</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+    
+                            <ul class="treeview-menu">
+    
+                                <li onclick="check(this);">
+                                    <a id="rbnCertificadoNumeracion">
+                                        <i class="fa fa-circle-o"></i> Certificado de Numeración
+                                    </a>
+                                </li>
+    
+                                <li onclick="check(this);">
+                                    <a id="rbnCertificadoNomenclatura">
+                                        <i class="fa fa-circle-o"></i> Certificado de Nomenclatura
+                                    </a>
+                                </li>
+    
+                                <li onclick="check(this);">
+                                    <a id="rbnCertificadoJurisdiccion">
+                                        <i class="fa fa-circle-o"></i> Certificado Jurisdicción
+                                    </a>
+                                </li>
+    
+                                <li onclick="check(this);">
+                                    <a id="rbnResolucionNumeracion">
+                                        <i class="fa fa-circle-o"></i> Resolución de Numeración
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+    
+                        <!-- /////////////////CONFIGURACIÓN////////////////////////////// -->
+                        <li class="treeview" style="display:none">
+                            <a href="#">
+                                <i class="fa fa-search"></i> <span>CONFIGURACIÓN</span>
+                                
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                
+                                <li>
+                                    <div class="form-inline">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="ml-4" id="chkPopup" onclick="wp.onOffPopup()" checked /> Activar etiqueta de Lote
+                                            </label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+    
+    
+    
+    
+    
+    
+    
+                    </ul>
+                </section>
+    
+            </aside>
+            <!-- MAPA -->
+            <div style="height:100%;">
+    
+                <div id="area">&nbsp;</div>
+                <div id="areaTotal">&nbsp;</div>
+                <div id="busqueda">AAAAAAAAAAAA</div>
+    
+    
+                <div id="map" class="map content-wrapper" style="padding-top: 60px; ">
+                    <div id="popup" class="ol-popup">
+                        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                        <div id="popup-content"></div>
+                    </div>
+                    <script type="module" src="./main.js"></script>
+                </div>
+                <div id="progress"></div>
+    
+    
+    
+            </div>
+            <!-- LEYENDA LATERAL DERECHA -->
+            <aside id="LeyendaDerecha" class="control-sidebar control-sidebar-light">
+                <div class="">
+                    <h4 class="control-sidebar-heading" style="text-align: center;">LEYENDA</h4>
+    
+                    <img id="imagenLeyenda" src="" />
+                    
+                </div>
+            </aside>
+            <!-- VENTANA FLOTANTE -->
+            <div id="flotanteleyenda" class="col-md-3" style=" left: 20em; bottom: 35em; width:300px;height:260px;display:none;">
+                <div class="box box-primary direct-chat direct-chat-primary" style="background: rgba(92, 184, 92,.6);">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Ventana flotante</h3>
+    
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle" data-original-title="Ayuda">
+                                <i class="fa fa-question"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+    
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <div class="direct-chat-msg">
+                                <div class="direct-chat-info clearfix">
+                                    <span class="direct-chat-name pull-left">Dany Gil Cuzco</span>
+                                    <span class="direct-chat-timestamp pull-right">20 Nov 2:00 pm</span>
+                                </div>
+                                <!-- /.direct-chat-info -->
+                                <div class="direct-chat-text">
+                                    Esto es un ejemplo de chat
+                                </div>
+                                <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
+                            <!-- Message to the right -->
+                            <div class="direct-chat-msg right">
+                                <div class="direct-chat-info clearfix">
+                                    <span class="direct-chat-name pull-right">Silvia Valencia</span>
+                                    <span class="direct-chat-timestamp pull-left">20 Nov 2:05 pm</span>
+                                </div>
+                                <!-- /.direct-chat-info -->
+                                <div class="direct-chat-text">
+                                    Respuesta de chat
+                                </div>
+                                <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
+                        </div>
+                        <!--/.direct-chat-messages-->
+                        <!-- Contacts are loaded here -->
+                        <div class="direct-chat-contacts" style="background: rgb(92, 184, 92);">
+                            <ul class="contacts-list">
+                                <li>
+                                    <a href="#">
+    
+                                        <div class="contacts-list-info">
+                                            <span class="contacts-list-name">
+                                                mas información de ayuda
+                                                <small class="contacts-list-date pull-right">20/11/2018</small>
+                                            </span>
+                                            <span class="contacts-list-msg">cual es tu duda? yo responderé ...</span>
+                                        </div>
+                                        <!-- /.contacts-list-info -->
+                                    </a>
+                                </li>
+                                <!-- End Contact Item -->
+                            </ul>
+                            <!-- /.contatcts-list -->
+                        </div>
+                        <!-- /.direct-chat-pane -->
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer" style="background: rgba(0,60,136,.1);">
+                        <form action="#" method="post">
+                            <div class="input-group">
+                                <input type="text" name="message" placeholder="Escribe un mensaje ..." class="form-control">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box-footer-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBusqueda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:2000; ">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:60%;">
+                <div class="modal-header">
+                    <h3 class="modal-title">Tipos de Busqueda</h3>
+                </div>
+                <div class="modal-body">
+                    <div id="accordion">
+                        <h3>Búsqueda por Lote Catastral</h3>
+                        <div>
+                            <div class="row">
+    
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Sector</label>
+                                        <input type="text" id="idBusquedaSector" maxlength="2" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Manzana</label>
+                                        <input type="text" id="idBusquedaManzana" maxlength="3" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Lote</label>
+                                        <input type="text" id="idBusquedaLote" maxlength="3" class="form-control" />
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" id="btnBuscarLote"> Buscar</button>
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+    
+    
+    
+    
+                        </div>
+                        <h3>Búsqueda por Direccion</h3>
+                        <div>
+                            <div class="row">
+    
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Vía</label>
+                                        <!-- @Html.DropDownListFor(m => m.CodigoVia, Model.ListaVia, "Seleccione...", new { @class = "form-control chosen-seleccionar", required = true }) -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Cuadra</label>
+                                        <!-- @Html.DropDownListFor(model => model.NumeroCuadra, new SelectList(Model.ListaNumeroCuadra, "Cuadra", "Cuadra"), "Seleccione...", new { @class = " chosen-seleccionar  form-control form-control-solid", required = true }) -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Número Puerta</label>
+                                        <!-- @Html.DropDownListFor(m => m.NumeroPuerta, Model.ListaNumeroPuerta, "Seleccione...", new { @class = "form-control chosen-seleccionar", required = true }) -->
+                                    </div>
+    
+    
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                        <h3>Búsqueda por Aera de Recreación</h3>
+                        <div>
+                            <div class="row">
+    
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Area de Recreacion</label>
+                                        <!-- @Html.DropDownListFor(m => m.CodigoAreaRecreacion, Model.ListaAreaRecreacion, "Seleccione...", new { @class = "form-control chosen-seleccionar", required = true }) -->
+                                    </div>
+    
+    
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/chosen/chosen.jquery.min.js"></script>
+
+
+
+
+    <!-- ./wrapper -->
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>$.widget.bridge('uibutton', $.ui.button);</script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="lib/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.all.js"></script>
+    <!-- Slimscroll -->
+    <script src="lib/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="js/Complementos/fastclick.js"></script>
+    <!-- noUiSlider -->
+    <script src="lib/noUiSlider/js/nouislider.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="lib/AdminLTE/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="lib/filesaver/js/FileSaver.min.js"></script>
+    <script  src="bundle.js"></script>
+    <script>
+
+        $("#accordion").accordion({
+            heightStyle: "content"
+        });
+    
+        $("#accordion-resizer").resizable({
+            minHeight: 340,
+    
+            resize: function () {
+                $("#accordion").accordion("refresh");
+            }
+        });
+    
+        $(".chosen-seleccionar").chosen({
+            width: "100%",
+            placeholder_text_single: "Seleccione una opción"
+        });
+    
+        
+        $('#visitantes').click(function () {
+            $('#modalVisitantes').modal('show');
+        });
+    
+        $('#OpenBusqueda').click(function () {
+            $('#modalBusqueda').modal('show');
+            //$('#modalVisitantes').modal('show');
+        });
+    
+    
+        $('#btnMostrarLeyenda7').click(function () {
+            $('#imagenLeyenda').attr('src', servidorMapas + '/geoserver/bellavista/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=30&HEIGHT=30&LEGEND_OPTIONS=fontAntiAliasing:true;forceLabels:on;countMatched:false&LAYER=' + espacio_trabajo + 'grouplayer_Sectores');
+        });
+    
+        $('#btnMostrarLeyenda8').click(function () {
+            $('#imagenLeyenda').attr('src', servidorMapas + '/geoserver/bellavista/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=30&HEIGHT=30&LEGEND_OPTIONS=fontAntiAliasing:true;forceLabels:on;countMatched:false&LAYER=' + espacio_trabajo + 'grouplayer_zonificacion');
+        });
+    
+        $('#btnMostrarLeyenda9').click(function () {
+            $('#imagenLeyenda').attr('src', servidorMapas + '/geoserver/bellavista/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LEGEND_OPTIONS=fontAntiAliasing:true;forceLabels:on;countMatched:false&LAYER=' + espacio_trabajo + 'grouplayer_Urbanizaciones');
+        });
+    
+        $('#btnMostrarLeyenda12').click(function () {
+            $('#imagenLeyenda').attr('src', '');
+        });
+    
+    
+        //cambia de color a darle click a un layer de mapa base
+        var menuesl = $("a.selay img");
+            menuesl.click(function () {
+                if ($(this).hasClass('bg-green')) {
+                    $(this).removeClass("bg-green");
+                }
+                else {
+                    $(this).addClass("bg-green");
+                    if ($(this).parent().attr('id') == "osmLink") {
+                        $("#TramaExternaLink img").removeClass("bg-green");
+                    } else if ($(this).parent().attr('id') == "TramaExternaLink") {
+                        $("#osmLink img").removeClass("bg-green");
+                    }
+    
+                }
+    
+            });
+    
+            //cambia de color al pasar sobre un layer de mapa base
+            menuesl.hover(function () {
+                if ($(this).hasClass('bg-gray')) {
+                    $(this).removeClass("bg-gray");
+                }
+                else {
+                    $(this).addClass("bg-gray");
+                }
+            });
+    
+    
+    
+            /*$('#btnBuscarLote').click(function () {
+                var codigolote = $('#idBusquedaSector').val() + $('#idBusquedaManzana').val() + $('#idBusquedaLote').val();
+                wp.buscarlote(codigolote);
+                console.log(codigolote);
+            });*/
+    
+        $("#CodigoVia").change(function () {
+            console.log($('#CodigoVia').val());
+            wp.BuscarVia($('#CodigoVia').val());
+            //var URL = "@Url.Content("~")" + "/Home/ListarCuadras?CodigoVia=".concat($('#CodigoVia').val());
+                $.post(URL, function (data) {
+                    $('#NumeroCuadra').find('option:not(:first)').remove();
+                    var items = '<option value="">Seleccione...</option>';
+                    $.each(data.data, function (i, item) {
+                        items += "<option value='" + item.Value + "'>" + item.Text + "</option>";
+                    });
+                    $('#NumeroCuadra').html(items);
+                    if ('@Model.NumeroCuadra') {
+                        $('#NumeroCuadra').val('@Model.NumeroCuadra');
+                    }
+                    $('#NumeroCuadra').trigger("chosen:updated");
+                    $('#NumeroPuerta').find('option:not(:first)').remove();
+                    $('#NumeroPuerta').trigger("chosen:updated");
+                });
+        });
+    
+        $("#NumeroCuadra").change(function () {
+            console.log($('#NumeroCuadra').val());
+            wp.BuscarCuadras($('#CodigoVia').val(), $('#NumeroCuadra').val());
+            //svar URL = "@Url.Content("~")" + "/Home/ListarNumeroPuerta?CodigoVia=".concat($('#CodigoVia').val()).concat("&NumeroCuadra=").concat($('#NumeroCuadra').val());
+                $.post(URL, function (data) {
+                    $('#NumeroPuerta').find('option:not(:first)').remove();
+                    var items = '<option value="">Seleccione...</option>';
+                    $.each(data.data, function (i, item) {
+                        items += "<option value='" + item.Value + "'>" + item.Text + "</option>";
+                    });
+                    $('#NumeroPuerta').html(items);
+                    if ('@Model.NumeroPuerta') {
+                        $('#NumeroPuerta').val('@Model.NumeroPuerta');
+                    }
+                    $('#NumeroPuerta').trigger("chosen:updated");
+                });
+        });
+    
+        $('#NumeroPuerta').change(function () {
+            wp.buscarlote($('#NumeroPuerta').val());
+        });
+    
+        $('#CodigoAreaRecreacion').change(function () {
+            wp.BuscarAreaRecreacion($('#CodigoAreaRecreacion').val());
+        });
+    
+            var handlesSlider = document.getElementById('slider-handles');
+    
+            //noUiSlider.create(handlesSlider, {
+            //    start: [0],
+            //    orientation: "vertical",
+            //    range: {
+            //        'min': [0],
+            //        'max': [100]
+            //    }
+            //});
+    
+            function presionaEnter2(event) {
+                if (event.which == 13 || event.keyCode == 13) {
+                    $('#btn_buscarlote').trigger('click');
+                }
+            }
+            toastr.options.progressBar = true;
+            toastr.options.extendedTimeOut = 9000;
+    
+            function textModal(sum) {
+                var item = $('#steptuto').val();
+                if (sum) {
+                    item++;
+                } else {
+                    item--;
+                }
+                $('#steptuto').val(item);
+                $('.sidebar-menu li').removeClass('active');
+                $('.lineArc').hide(); $('#textNav').hide();
+                $('#barraNavegacion2').css("top", "140px");
+                switch (item) {
+                    case 1: $('#helptext').html('<b>Ayuda Mapas Base</b><p>Aquí encontraras los Mapas del Catastro de San Isidro (manzana, lote y vía pública), las fotos aéreas (Ortofotos) actuales e históricas, puedes darle transparencia y superponerlas en el orden de tu preferencia.</p><p>Selecciona cualquier lote y encontraras la información y características como foto del predio, Código Único Catastral, Dirección, Área de terreno, área construida, linderos y otros. Además de la Compatibilidad de Uso o los usos que puedes realizar o están autorizados en el predio.</p>'); $('#prevtuto').hide(); $('#nexttuto').show(); $('#li_ayudaBase').addClass('active'); $('#barraNavegacionLinea2').show(); $('#textNav').show(); break;
+                    case 2: $('#helptext').html('<b>Ayuda Información Temática</b><p>Aquí podrás ubicar los locales municipales, servicios de educación, salud, ocio recreación y otros. Elije la temática de tu interés. Tienes la opción de visualizar la leyenda de la temática elegida (Mostrar leyenda)</p>'); $('#prevtuto').show(); $('#li_informacionTematica').addClass('active'); $('#barraNavegacionLinea3').show(); $('#nexttuto').show(); break;
+                    case 3: $('#helptext').html('<b>Ayuda Normativa Urbana</b><p>Aquí podrás visualizar las normas que aplican a los lotes, como zonificación y usos del suelo y otros. Selecciona cualquier lote y encontraras la información y características como foto del predio, Código Único Catastral, Dirección, Área de terreno, área construida, linderos y otros. Además de la Compatibilidad de Uso o los usos que puedes realizar o están autorizados en el predio.</p>'); $('#prevtuto').show(); $('#nexttuto').show(); $('#li_normatividadUrbana').addClass('active'); $('#barraNavegacionLinea4').show(); break;
+                    case 4: $('#helptext').html('<b>Ayuda Búsquedas</b><p>Aquí podrás encontrar los predios que cuentan con Licencias de funcionamiento por actividad: escribe la actividad o giro o si prefieres busca un predio por Código Catastral. Selecciona cualquier lote y encontraras la información y características como foto del predio, Código Único Catastral, Dirección, Área de terreno, área construida, linderos y otros. Además de la Compatibilidad de Uso o los usos que puedes realizar o están autorizados en el predio.</p>'); $('#prevtuto').show(); $('#nexttuto').show(); $('#li_busquedas').addClass('active'); $('#barraNavegacionLinea5').show(); $('#barraNavegacion2').css("top", "190px"); break;
+                    case 5: $('#helptext').html('<b>Ayuda Utilidades</b><p>Aquí podrás dibujar diferentes objetos (líneas, polígonos puntos, círculos) sobre el(los) mapa(s) que elijas. Tienes opciones de color de borde, relleno y grosor de borde. También puedes medir alguna distancia o área. Selecciona cualquier lote y encontraras la información y características como foto del predio, Código Único Catastral, Dirección, Área de terreno, área construida, linderos y otros. Además de la Compatibilidad de Uso o los usos que puedes realizar o están autorizados en el predio.</p>'); $('#nexttuto').hide(); $('#li_utilidades').addClass('active'); $('#barraNavegacionLinea6').show(); $('#barraNavegacion2').css("top", "230px"); break;
+                }
+            };
+    
+    
+            // SLIMSCROLL FOR layers mapa base
+            $('#sortablelayers').slimScroll({
+                height: '200px'
+            });
+    
+            $('#sortablelayers2').slimScroll({
+                height: '100%'
+            });
+    
+    
+    
+            const cant_item = 3;//cantidad de capas si cant_item es 4  son 5
+    
+    
+    
+    
+            $(function () {
+                // $("#sortablelayers").sortable();
+                $("#sortablelayers").sortable({
+                    start: function (event, ui) {
+                        console.log('Inicio');
+                        console.log($(ui.item).data('id'));
+                        let zindex = calcValorIndex(cant_item, ui.item.index());
+                        console.log(zindex);
+                    },
+                    stop: function (event, ui) {
+                        console.log('fin')
+                        let zindex = calcValorIndex(cant_item, ui.item.index());
+                        console.log(zindex);
+                        wp.cambiarZindex();
+                    },
+                });
+    
+                $("#sortablelayers").disableSelection();
+                $("#sortablelayers").draggable({ axis: "y", opacity: 0.7, helper: "clone" });
+    
+            });
+    
+    
+            //$(function () {
+            //    // $("#sortablelayers").sortable();
+            //    $("#sortablelayers2").sortable({
+            //        start: function (event, ui) {
+            //            console.log('Inicio');
+            //            console.log($(ui.item).data('id'));
+            //            let zindex = calcValorIndex(cant_item, ui.item.index());
+            //            console.log(zindex);
+            //        },
+            //        stop: function (event, ui) {
+            //            console.log('fin')
+            //            let zindex = calcValorIndex(cant_item, ui.item.index());
+            //            console.log(zindex);
+            //            wp.cambiarZindex();
+            //        },
+            //    });
+    
+            //    $("#sortablelayers2").disableSelection();
+            //    $("#sortablelayers2").draggable({ axis: "y", opacity: 0.7, helper: "clone" });
+    
+            //});
+    
+    
+            function calcValorIndex(cantElemento, index) {
+                return Math.abs(index - cantElemento);
+            }
+    
+    
+    
+            $(function () {
+                $("#flotanteleyenda").draggable();
+            });
+    
+            $('.btn-toggle').click(function () {
+                $(this).find('.btn').toggleClass('active');
+    
+                if ($(this).find('.btn-primary').length > 0) {
+                    $(this).find('.btn').toggleClass('btn-primary');
+                }
+                $(this).find('.btn').toggleClass('btn-default');
+    
+            });
+    
+            /*
+            ///////////////coordenada del mouse (sistemas distintos)//////////////
+            map.on('pointermove', function (event) {
+                var coord3857 = event.coordinate;
+                var coord4326 = ol.proj.transform(coord3857, 'EPSG:3857', 'EPSG:4326');
+                $('#mouse3857').text(ol.coordinate.toStringXY(coord3857, 2));
+                $('#mouse4326').text(ol.coordinate.toStringXY(coord4326, 4));
+            });
+            */
+    
+    
+    
+    
+            //evento de click al lote
+            // map.addInteraction(click);
+            //map.on('click', function (evt) {
+            //alert('click');
+            //var coordinate = evt.coordinate;
+            //var feature = map.forEachFeatureAtPixel(evt.pixel,
+            //    function (feature, layer) {
+            //        //elegir la capa a ser deleccionada (vectorWFS)
+            //        if (layer == vectorLote) {
+            //            return feature;
+            //            // return highlightStyle;
+            //        }
+            //    }
+            //);
+            //if (feature) {
+            //    codigo = feature.get('cod_cat');
+    
+            //    var mywindows = window.open("http://www.munisanisidro.gob.pe/GISWeb/DetalleGIS/frmLoteResp.aspx?codlote=" + codigo + "", "dgc", "toolbar=no,top=500,left=500,width=600,height=400")
+    
+            //} else {
+            //    info.innerHTML = '&nbsp;';
+            //}
+            //});
+    
+            ///////////////recargar mapa ///////////////recargar mapa ///////////////recargar mapa
+    
+            function recargarmap() { map.render(); }
+    
+    
+            // controles deslizantes(slider) ocultar parte del mapa
+            //function precomposeLayer(event, nombreSlider) {
+            //    alert('b');
+            //    var ctx = event.context;
+            //    var width = ctx.canvas.width * ($(nombreSlider).slider('value') / 100);
+            //    ctx.save();
+            //    ctx.beginPath();
+            //    ctx.rect(width, 0, ctx.canvas.width - width, ctx.canvas.height);
+            //    ctx.clip();
+            //}
+            //function postcomposeLayer(event) {
+            //    var ctx = event.context;
+            //    ctx.restore();
+            //}
+            //$("#slider_oculta03").slider({ orientation: "vertical", value: 0, slide: function (e, ui) { wp.map.render(); } });
+            //$("#slider_oculta02").slider({ orientation: "vertical", value: 0, slide: function (e, ui) { wp.map.render(); } });
+            //$("#slider_oculta06").slider({ orientation: "vertical", value: 0, slide: function (e, ui) { wp.map.render(); } });
+            //$("#slider_oculta01").slider({ orientation: "vertical", value: 0, slide: function (e, ui) { wp.map.render(); } });
+            // $("#slider_oculta05").slider({ orientation: "vertical", value: 0, slide: function (e, ui) { map.render(); } });
+            // $("#slider_oculta41").slider({ orientation: "vertical", value: 0, slide: function (e, ui) { map.render(); } });
+            //Ortofotografia2018.on('precompose', (event) => precomposeLayer(event, '#slider_oculta03'));// callback
+            //Ortofotografia2018.on('postcompose', (event) => postcomposeLayer(event));
+            //Ortofotografia2016.on('precompose', (event) => precomposeLayer(event, '#slider_oculta02'));// callback
+            //Ortofotografia2016.on('postcompose', (event) => postcomposeLayer(event))
+            //grouplayerLotizacion.on('precompose', (event) => precomposeLayer(event, '#slider_oculta06'));// callback
+            //grouplayerLotizacion.on('postcompose', (event) => postcomposeLayer(event));
+            //osmLayer.on('precompose', (event) => precomposeLayer(event, '#slider_oculta01'));// callback
+            //osmLayer.on('postcompose', (event) => postcomposeLayer(event));
+            //grouplayerManzanas.on('precompose', (event) => precomposeLayer(event, '#slider_oculta05'));// callback
+            //grouplayerManzanas.on('postcompose', (event) => postcomposeLayer(event));
+            //StamenLayer.on('precompose', (event) => precomposeLayer(event, '#slider_oculta41'));// callback
+            //StamenLayer.on('postcompose', (event) => postcomposeLayer(event))
+    
+            //control deslizante que controla la opacidad de los layers mapa base(transparencia)
+    
+            //comcentado para miraflores
+            //$("#slider_trasp03").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { console.log("mandara esto 2018"); wp.Ortofotografia2018.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp02").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2016.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp09").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2015.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp10").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2012.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp11").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2008.setOpacity(ui.value / 100); } });
+            /*$("#slider_trasp_Foto2011").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2011.setOpacity(ui.value / 100); } });
+            $("#slider_trasp_Foto2006").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2006.setOpacity(ui.value / 100); } });
+            $("#slider_trasp_Foto2005").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2005.setOpacity(ui.value / 100); } });
+            $("#slider_trasp_Foto2002").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia2002.setOpacity(ui.value / 100); } });*/
+            //$("#slider_trasp13").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia1998.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp14").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia1984.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp15").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia1974.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp16").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia1958.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp17").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia1949.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp18").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.Ortofotografia1943.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp19").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.pol_ZonificacionNormativaDeUsosDeSuelo.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp07").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.osmLayer.setOpacity(ui.value / 100); } });
+    
+    
+            //$("#slider_trasp01").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.googleLayer.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp54").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.grouplayerTramaExterna.setOpacity(ui.value / 100); } });
+            //$("#slider_trasp_UsoCompa").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { wp.pol_UsosPredominantes.setOpacity(ui.value / 100); } });
+    
+            // $("#slider_trasp05").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { grouplayerManzanas.setOpacity(ui.value / 100); } });
+            // $("#slider_trasp41").slider({ orientation: "vertical", value: 100, slide: function (e, ui) { StamenLayer.setOpacity(ui.value / 100); } });
+    
+            //cambia de icono al selecionar un elemento en el menu
+            function check(e) {
+                console.log("eeeeeeeeeeeeeee");
+                console.log(e);
+                if ($(e).find(".fa").hasClass('fa-circle-o')) {
+                    $(e).find(".fa").removeClass("fa-circle-o")
+                    $(e).find(".fa").addClass("fa-check-circle text-red")
+                }
+                else {
+                    $(e).find(".fa").removeClass("fa-check-circle text-red")
+                    $(e).find(".fa").addClass("fa-circle-o")
+                }
+            }
+    
+    
+            /*var ImgZonif = 0;
+            $("#zonificacionLink").click(function () {
+                console.log("Estamos en zonificacionLink veremos si funciona");
+                ImgZonif = 1;
+                //$("#chkZonificacion").click();
+            });
+    
+    
+    
+            $("#chkZonificacion").click(function () {
+                if (ImgZonif != 1) {
+                    if ($("#zonificacionLink img").hasClass('bg-green')) {
+                        $("#zonificacionLink img").removeClass("bg-green");
+                    }
+                    else {
+                        $("#zonificacionLink img").addClass("bg-green");
+                    }
+                }
+                ImgZonif = 0;
+            })*/
+    
+    
+            
+    
+            //$('#row1 a').click(function () {
+            //    $(this).siblings('fieldset').toggle();
+            //}).siblings('fieldset').hide();
+    
+    
+            ////////////////BUSQUEDA DIRECCION
+            //autocomplete via
+            //$("#txtvia").autocomplete({
+            //    source: function (request, response) {
+            //        var dato = {
+            //            id: request.term,
+            //            valor: request.term
+            //        };
+    
+    
+            //        $.ajax({
+            //            url: "MSIGeoportal/Home/BuscarVia",
+            //            type: "POST",
+            //            headers: {
+            //                'Accept': 'application/json',
+            //                'Content-Type': 'application/json'
+            //            },
+            //            dataType: "json",
+            //            data: JSON.stringify(dato),
+            //            success: function (msg) {
+            //                response($.map(msg, function (item) {
+            //                    return {
+            //                        label: item.id,
+            //                        value : item.valor
+            //                    }
+            //                }));
+            //            },
+            //            select: function (event, ui) {
+            //                $("#txtvia").val(ui.item.valor);
+            //               alert(ui.item.id);
+    
+            //            }
+            //        });
+            //    },
+            //    minLength: 3,
+            //    delay: 100
+            //});
+            $("#txtvia").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term
+                    };
+    
+                    $.ajax({
+                        url: root + "Home/BuscarVia2",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        success: function (data) {
+                            console.log(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.id,
+                                    value: item.valor,
+                                    desc: item.id
+                                }
+                            }))
+                        },
+    
+                        //response
+                    });
+                },
+    
+                select: function (event, ui) {
+                    //wp.BuscarVia("L27" + ui.item.value);
+                    $('#txtNumeroLote').val('');
+                    $('#txtvia').val(ui.item.label);
+                    $("#txtviaid").val(ui.item.value);
+                    $('#txtvia').blur();
+                    return false;
+                },
+                minLength: 2,
+                delay: 100
+            });
+    
+    
+            $("#txtSoloVia").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term
+                    };
+    
+                    $.ajax({
+                        url: root + "Home/BuscarVia2",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        success: function (data) {
+                            console.log(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.id,
+                                    value: item.valor,
+                                    desc: item.id
+                                }
+                            }))
+                        },
+    
+                        //response
+                    });
+                },
+    
+                select: function (event, ui) {
+                    console.log(ui);
+                    wp.BuscarVia("L27" + ui.item.value);
+                    //$('#txtNumeroLote').val('');s
+                    $('#txtSoloVia').val(ui.item.label);
+                    $("#txtviaid").val(ui.item.value);
+                    $('#txtSoloVia').blur();
+                    return false;
+                },
+                minLength: 2,
+                delay: 100
+            });
+    
+            $("#txtSoloVia").focus(function () {
+                //$('#txtNumeroLote').val('');
+                $('#txtSoloVia').val('');
+                $("#txtviaid").val('');
+            });
+    
+    
+            $("#txtParque").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term
+                    };
+    
+                    $.ajax({
+                        url: root + "Home/BuscarParque",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        success: function (data) {
+                            console.log(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.denominaci,
+                                    value: item.gid,
+                                    desc: item.gid
+                                }
+                            }))
+                        },
+    
+                        //response
+                    });
+                },
+    
+                select: function (event, ui) {
+                    wp.BuscarParque(ui.item.value);
+                    //$('#txtNumeroLote').val('');
+                    $('#txtParque').val(ui.item.label);
+                    //$("#txtviaid").val(ui.item.value);
+                    //$('#txtSoloVia').blur();
+                    return false;
+                },
+                minLength: 3,
+                delay: 100
+            });
+    
+    
+            $("#cbTipoBusquedaGeneral").change(function () {
+                var valor = $(this).val();
+                console.log('valor: ' + valor);
+    
+                if (valor === '1') {
+                    $("#divBusCodLote").show();
+                    $("#divBusVia").hide();
+                    $(".divBusDireccion").hide();
+                    $("#divParque").hide();
+                    //Limpiar Datos
+                    $("#txtSoloVia").val('');
+                    $("#txtvia").val('');
+                    $("#txtNumeroLote").val('');
+                    $("#txtviaid").val('');
+                    $("#txtParque").val('');
+                } else if (valor === '2') {
+                    $("#divBusVia").show();
+                    $("#divBusCodLote").hide();
+                    $(".divBusDireccion").hide();
+                    $("#divParque").hide();
+                    //Limpiar Datos
+                    $("#txtCodLote").val('');
+                    $("#txtvia").val('');
+                    $("#txtNumeroLote").val('');
+                    $("#txtviaid").val('');
+                    $("#txtParque").val('');
+                } else if (valor === '3') {
+                    $(".divBusDireccion").show();
+                    $("#divBusVia").hide();
+                    $("#divBusCodLote").hide();
+                    $("#divParque").hide();
+                    //Limpiar Datos
+                    $("#txtCodLote").val('');
+                    $("#txtvia").val('');
+                    $("#txtviaid").val('');
+                    $("#txtParque").val('');
+                } else if (valor === '4') {
+                    $("#divParque").show();
+                    $("#divBusCodLote").hide();
+                    $("#divBusVia").hide();
+                    $(".divBusDireccion").hide();
+                    //Limpiar Datos
+                    $("#txtCodLote").val('');
+                    $("#txtvia").val('');
+                    $("#txtviaid").val('');
+                    $("#txtParque").val('');
+    
+                }
+            });
+    
+    
+            // //////////copiar URL al clipboard (portapapeles)///////////////////////
+            //    //$("#btn_Clipboard").click(function (element) {
+            //function copyToClipboard(element) {
+            //    var $temp = $("<input>");
+            //    $("body").append($temp);
+            //    $temp.val($(element).text()).select();
+            //    document.execCommand("copy");
+            //    $temp.remove();
+            //}
+    
+    
+            //var contextmenu = new ContextMenu({
+            //    width: 170,
+            //    defaultItems: true, // defaultItems are (for now) Zoom In/Zoom Out
+            //    items: [
+            //      {
+            //          text: 'Center map here',
+            //          classname: 'some-style-class', // add some CSS rules
+            //          callback: ContextMenu.center // `center` is your callback function
+            //      },
+            //      {
+            //          text: 'Add a Marker',
+            //          classname: 'some-style-class', // you can add this icon with a CSS class
+            //          // instead of `icon` property (see next line)
+            //          icon: 'Imagenes/pin_drop.png',  // this can be relative or absolute
+            //          callback: ContextMenu.marker
+            //      },
+            //      '-' // this is a separator
+            //    ]
+            //});
+            //wp.map.addControl(contextmenu);
+    
+    
+            //autocomplete numero de lote
+            $("#txtNumeroLote").autocomplete({
+                source: function (request, response) {
+                    var vianumero = {
+                        //via: $("#txtvia").val(),
+                        via: $("#txtviaid").val(),
+                        numero: request.term
+                    };
+                    $.ajax({
+                        url: root + "Home/BuscarNumeroLote",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(vianumero),
+    
+                        success: function (data) {
+                            console.log(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.valor,
+                                    value: item.valor//,
+                                    //desc: item.id
+                                }
+                            }))
+                        },
+                        //success: response
+                    });
+                },
+                minLength: 1,
+                delay: 100
+            });
+    
+            //buscar lote segun via y numero ingresado
+            $("#btn_buscarlote").click(function () {
+                if (!$('#txtvia').val()) {
+                    toastr.warning('Ingrese la Vía', 'GeoPortal');
+                } else if (!$('#txtNumeroLote').val()) {
+                    toastr.warning('Ingrese el Número', 'GeoPortal');
+                } else {
+                    var vianumero = {
+                        via: $("#txtviaid").val(),
+                        numero: $("#txtNumeroLote").val()
+                    };
+                    $.ajax({
+                        url: root + "Home/BuscarLote",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(vianumero),
+                        success: function (data) {
+    
+                            LimpiarBusqLicencia();
+                            LimpiarBusqCiiu();
+                            LimpiarBusqLote();
+                            wp.buscarlote(data);
+                        }
+                    });
+                }
+            });
+    
+            function LimpiarBusqLicencia() {
+                $("#txtGiro").val('');
+                $("#tbresultadolicencia").empty();
+            }
+    
+            function LimpiarBusqCiiu() {
+                $("#txtCiiu").val('');
+                $("#ddl_sectorCIIU").val('');
+                $("#txtViaCiiu").val('');
+                $("#tbresultadociiu").empty();
+            }
+    
+            function LimpiarBusqLote() {
+                $("#txtCodLote2").val('');
+            }
+    
+            //////////////////BUSQUEDA LICENCIA MAIN.CHTML
+            //autocomplete giro
+            $("#txtGiro").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term.toUpperCase()
+                    };
+    
+                    $.ajax({
+                        url: root + "Home/fbd_BuscarGiro",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        success: response
+                    });
+                },
+                minLength: 3,
+                delay: 100
+            });
+    
+            //llenar el combo de los sectores
+            /*$.getJSON(root + "Home/CargarSectorCIIU", function (result) {
+                var options = $("#ddlSectorLicencia");
+                $.each(result, function (index, value) {
+                    options.append($("<option />").val(value).text(value));
+                });
+            });*/
+    
+            //autocomplete via
+            $("#txtViaLicencia").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term
+                    };
+    
+                    $.ajax({
+                        url: root + "Home/BuscarVia",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        success: response
+                    });
+                },
+                minLength: 3,
+                delay: 100
+            });
+    
+            $('#btnExportLicen').click(function () {
+                var $btn = $(this).button('loading');
+                console.log('loading');
+                console.log($btn);
+    
+                if ($('#tbresultadolicencia').html()) {
+                    $("#tbresultadolicencia").empty();
+                    var licencia = {
+                        giro: $("#txtGiro").val(),
+                        sector: $("#ddlSectorLicencia").val(),
+                        via: $("#txtViaLicencia").val()
+                    };
+                    $.ajax({
+                        url: root + "Home/fdb_CargarLicenciaLoteExpor",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(licencia),
+                        success: function (data) {
+                            $htmlstring = "<table border='1px'>";
+                            $htmlstring += "<tr><td><b>Codigo</b></td><td width='250'><b>Ubicacion</b></td></tr>";
+                            if (data) {
+                                console.log(data);
+                                $.each(data, function (index, value) {
+                                    $htmlstring += "<tr><td>" + value.codigo + "</td><td>" + value.ubicacion + "</td></tr>";
+                                });
+                            }
+                            $htmlstring += "</table>";
+                            console.log($htmlstring);
+                            $("#tbresultadolicencia").append($htmlstring);
+    
+                            var elt = document.getElementById('tbresultadolicencia');
+                            var wb = XLSX.utils.table_to_book(elt, { sheet: "Hoja 1" });
+                            var fn = "";
+                            return XLSX.writeFile(wb, fn || ('Reporte_Licencia_Geoportal.' + ('xls' || 'xls')));
+                        },
+                        complete: function () {
+                            $btn.button('reset');
+                        }
+                    });
+    
+    
+                } else {
+                    toastr.warning('No se ha encontrado información', 'GeoPortal');
+                    $btn.button('reset');
+                }
+    
+            });
+            //buscar lote segun giro, sector, via
+            $("#btnLicencia").click(function () {
+    
+                if ($("#txtGiro").val() == "") {
+                    //alert("vacio");
+                    toastr.warning('Ingrese el Giro', 'GeoPortal');
+                }
+    
+                $("#tbresultadolicencia").empty();
+                var licencia = {
+                    giro: $("#txtGiro").val(),
+                    sector: $("#ddlSectorLicencia").val(),
+                    via: $("#txtViaLicencia").val()
+                };
+    
+                $.ajax({
+                    url: root + "Home/fdb_CargarLicenciaLote",
+                    type: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    dataType: "json",
+                    data: JSON.stringify(licencia),
+                    success: function (data) {
+    
+                        LimpiarBusqCiiu();
+                        LimpiarBusqLote();
+    
+                        wp.BuscarLicencia(data);
+                        //////buscarlote(data);
+                        $htmlstring = "<table border='1px'>";
+                        //////$htmlstring += "<tr><td><b>Código</b></td><td><b>Ubicación</b></td></tr>";
+    
+    
+                        $htmlstring += "</table>";
+                        $("#tbresultadolicencia").append($htmlstring);
+    
+                    }
+                });
+            });
+    
+            $("#CapasPruebaLink").click(function () {
+    
+                $.ajax({
+                    url: root + "Home/fdb_CargarCapaRegistrosPublicos",
+                    type: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    dataType: "json",
+                    data: JSON.stringify(),
+                    success: function (data) {
+    
+                        //LimpiarBusqCiiu();
+                        //LimpiarBusqLote();
+    
+                        wp.CargarCapaRegistrosPublicos(data);
+                        //////buscarlote(data);
+                        //$htmlstring = "<table border='1px'>";
+                        //////$htmlstring += "<tr><td><b>Código</b></td><td><b>Ubicación</b></td></tr>";
+    
+    
+                        //$htmlstring += "</table>";
+                        //$("#tbresultadolicencia").append($htmlstring);
+    
+                    }
+                });
+    
+            });
+    
+            // $.getJSON("MSIGeoportal/Home/CargarSector", function (result) {
+            //    var options = $("#ddlSectorLicencia");
+            //    $.each(result, function (index, value) {
+            //        options.append($("<option />").val(value).text(value));
+            //    });
+            //});
+    
+            /////////////////BUSQUEDA CIUU
+            //autocompleteCiuu
+            $("#txtCiiu").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term
+                    };
+                    $.ajax({
+                        url: root + "Home/fbd_BuscarGiroCIIU",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        success: response
+                    });
+                },
+                minLength: 2,
+                delay: 100
+            });
+    
+            //autocomplete Sector
+            /*$.getJSON(root + "Home/CargarSectorCIIU", function (result) {
+                var options = $("#ddl_sectorCIIU");
+                $.each(result, function (index, value) {
+                    options.append($("<option />").val(value).text(value));
+                });
+            });*/
+    
+            //autocomplete via
+            $("#txtViaCiiu").autocomplete({
+                source: function (request, response) {
+                    var dato = {
+                        id: request.term,
+                        valor: request.term
+                    };
+                    $.ajax({
+                        url: root + "Home/BuscarVia3",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(dato),
+                        //success: response
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.id,
+                                    value: item.valor,
+                                    desc: item.id
+                                }
+                            }))
+                        },
+                    });
+                },
+                select: function (event, ui) {
+                    $('#txtViaCiiu').val(ui.item.label);
+                    $("#txtViaCiuuid").val(ui.item.value);
+                    return false;
+                },
+                minLength: 2,
+                delay: 100
+            });
+    
+            //buscar lote segun ciuu, sector, via
+            $("#btnExportCiiu").click(function () {
+                var $btn = $(this).button('loading');
+                if ($('#tbresultadociiu').html()) {
+                    $("#tbresultadociiu").empty();
+                    var clciiu = {
+                        ciiu: $("#txtCiiu").val(),
+                        sector: $("#ddl_sectorCIIU").val(),
+                        via: $("#txtViaCiuuid").val()
+                    };
+                    $.ajax({
+                        url: root + "Home/fdb_CargarCiiuLoteExpor",
+                        type: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        dataType: "json",
+                        data: JSON.stringify(clciiu),
+                        success: function (data) {
+                            $htmlstring = "<table border='1px'>";
+                            $htmlstring += "<tr><td><b>Codigo</b></td><td width='250'><b>Ubicacion</b></td></tr>";
+                            if (data) {
+                                $.each(data, function (index, value) {
+                                    $htmlstring += "<tr><td>" + value.codigo + "</td><td>" + value.ubicacion + "</td></tr>";
+                                });
+                            }
+                            $htmlstring += "</table>";
+                            $("#tbresultadociiu").append($htmlstring);
+    
+                            var elt = document.getElementById('tbresultadociiu');
+                            var wb = XLSX.utils.table_to_book(elt, { sheet: "Hoja 1" });
+                            var fn = "";
+                            return XLSX.writeFile(wb, fn || ('Reporte_CIIU_Geoportal.' + ('xls' || 'xls')));
+                        },
+                        complete: function () {
+                            $btn.button('reset');
+                        }
+                    });
+                } else {
+                    toastr.warning('No se ha encontrado información', 'GeoPortal');
+                }
+            });
+    
+    
+            $("#btnCiiu").click(function () {
+                $("#tbresultadociiu").empty();
+                var clciiu = {
+                    ciiu: $("#txtCiiu").val(),
+                    sector: $("#ddl_sectorCIIU").val(),
+                    via: $("#txtViaCiuuid").val()
+                };
+                $.ajax({
+                    url: root + "Home/fdb_CargarCiiuLote",
+                    type: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    dataType: "json",
+                    data: JSON.stringify(clciiu),
+                    success: function (data) {
+                        $htmlstring = "<table border='1px'>";
+    
+                        wp.BuscarCiiu(data);
+                        LimpiarBusqLicencia();
+                        LimpiarBusqLote();
+                        //if (data) {
+                        //    wp.clearSelected();
+    
+                        //    const layerSource = wp.layers[37].getSource();
+                        //    campo = 'id_lote';
+    
+                        //    var selectFeatures = wp.select.getFeatures();
+                        //    var eachFeatures = layerSource.getFeatures();
+                        //    if (data.length != 0) {
+                        //        $.each(data, function (index, value) {
+                        //            $htmlstring += "<tr><td><a href='#' onclick='buscarlote(" + value + ");'> " + value + "</a></td></tr>";
+                        //        });
+                        //    }
+                        //    for (const feature of eachFeatures) {
+                        //        if (data.length != 0) {
+                        //            $.each(data, function (index, value) {
+                        //                if (feature.get(campo) == value) {
+                        //                    selectFeatures.push(feature);
+    
+                        //                }
+                        //            });
+                        //        }
+                        //    }
+    
+                        //    wp.map.getView().setZoom(15.2);
+                        //}
+                        $htmlstring += "</table>";
+                        $("#tbresultadociiu").append($htmlstring);
+                    }
+                });
+            });
+    
+    
+    
+    
+    
+    
+            ////buscar cod de lote
+            //$("#btn_buscarcodlote").click(function () {
+            //    var codlote = {
+            //        codigo: $("#txtCodLote").val()
+            //    };
+            //       // alert(data);
+            //    dataType: "json",
+            //    data: JSON.stringify(codlote),
+            //        success: function (data) {
+            //            //alert("LOTERESULTANTE:" + data);
+            //            buscarlote(data);
+            //        }
+            //});
+    
+    
+            //position: { my: "center top", at: "center bottom" },
+            //open: function () {
+            //    setTimeout(function () {
+            //        $('.ui-autocomplete').css('z-index', 99999999999999);
+            //        $('.ui-autocomplete').css('position', "absolute");
+            //    }, 3);
+            //},
+            //minLength: 3,
+            //delay: 100
+    
+            //});
+    
+    
+    
+    
+    
+    
+    
+    
+        </script>
+
+</body>
+</html>
